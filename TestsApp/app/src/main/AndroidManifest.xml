@@ -12,6 +12,31 @@
         android:theme="@style/Theme.TestsApp"
         tools:targetApi="31">
         <activity
+            android:name=".ChatActivity"
+            android:exported="false"
+            android:label="@string/title_activity_chat"
+            android:theme="@style/Theme.TestsApp" />
+        <activity
+            android:name=".RequestsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_requests"
+            android:theme="@style/Theme.TestsApp" />
+        <activity
+            android:name=".SecurityActivity"
+            android:exported="false"
+            android:label="@string/title_activity_security"
+            android:theme="@style/Theme.TestsApp" />
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_notifications"
+            android:theme="@style/Theme.TestsApp" />
+        <activity
+            android:name=".AccountActivity"
+            android:exported="false"
+            android:label="@string/title_activity_account"
+            android:theme="@style/Theme.TestsApp" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
@@ -22,6 +47,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

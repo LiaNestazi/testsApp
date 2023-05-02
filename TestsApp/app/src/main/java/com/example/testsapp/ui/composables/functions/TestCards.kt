@@ -1,0 +1,81 @@
+package com.example.testsapp.ui.composables
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.testsapp.models.Test
+import com.example.testsapp.R
+
+@Composable
+fun TestCards(item: Test) {
+    Card(modifier = Modifier
+        .fillMaxWidth()
+        .padding(5.dp)
+        .clip(RoundedCornerShape(10.dp))
+        .clickable { /*TODO*/ },
+        elevation = 5.dp
+    ){
+        Column(
+            modifier = Modifier.padding(10.dp),
+            verticalArrangement = Arrangement.SpaceBetween,
+            horizontalAlignment = Alignment.CenterHorizontally
+        )
+        {
+            Text(item.name,
+                fontSize = 28.sp,
+                style = MaterialTheme.typography.h1)
+            Text(item.description,
+                fontSize = 14.sp,
+                style = MaterialTheme.typography.body2)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ){
+                Text("Рейтинг",
+                    fontSize = 14.sp,
+                    style = MaterialTheme.typography.body2)
+                RatingBar(rating = item.rating)
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ){
+                Text(item.author_id,
+                    fontSize = 16.sp,
+                    style = MaterialTheme.typography.body2)
+
+                FloatingActionButton(onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .size(42.dp),
+                    shape = CircleShape,
+                    backgroundColor = colorResource(id = R.color.main_orange),
+                    elevation = FloatingActionButtonDefaults.elevation(5.dp)
+                ){
+                    Icon(
+                        painter = painterResource(id = R.drawable.play),
+                        contentDescription = "Start",
+                        tint = Color.White
+                    )
+                }
+            }
+        }
+
+    }
+}
