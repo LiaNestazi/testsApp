@@ -14,17 +14,18 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.testsapp.R
 import com.example.testsapp.ui.composables.functions.Header
 
 @Composable
-fun NotificationsPage(){
+fun NotificationsPage(navController: NavHostController){
     val activity = (LocalContext.current as? Activity)
     Box(modifier = Modifier.fillMaxSize()) {
         Column(horizontalAlignment = Alignment.Start,
             modifier = Modifier.align(Alignment.TopCenter)) {
 
-            Header(activity = activity, title = "Уведомления")
+            Header(navController, title = "Уведомления")
 
 
             Column(modifier = Modifier

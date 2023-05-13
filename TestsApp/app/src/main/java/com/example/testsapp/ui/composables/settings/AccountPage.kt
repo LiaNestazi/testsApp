@@ -23,6 +23,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.testsapp.R
 import com.example.testsapp.models.User
 import com.example.testsapp.ui.composables.functions.Header
@@ -30,8 +31,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun AccountPage(currentUser: User){
-    val activity = (LocalContext.current as? Activity)
+fun AccountPage(navController: NavHostController, currentUser: User){
     var name = remember {
         mutableStateOf(currentUser.name)
     }
@@ -45,7 +45,7 @@ fun AccountPage(currentUser: User){
         Column(horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.align(Alignment.TopCenter)) {
 
-            Header(activity = activity, title = "Аккаунт")
+            Header(navController = navController, title = "Аккаунт")
 
             Box(modifier = Modifier
                 .fillMaxHeight(0.33f)) {
@@ -107,7 +107,14 @@ fun AccountPage(currentUser: User){
                     .padding(horizontal = 16.dp),
                 value = name.value,
                 onValueChange = { name.value = it },
-                label = { Text("Имя")}
+                label = { Text("Имя")},
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    textColor = colorResource(id = R.color.main_orange),
+                    cursorColor = colorResource(id = R.color.main_orange),
+                    trailingIconColor = colorResource(id = R.color.main_orange),
+                    focusedBorderColor = colorResource(id = R.color.light_gray),
+                    focusedLabelColor = colorResource(id = R.color.main_orange)
+                )
             )
             Spacer(modifier = Modifier.size(20.dp))
             OutlinedTextField(
@@ -116,7 +123,14 @@ fun AccountPage(currentUser: User){
                     .padding(horizontal = 16.dp),
                 value = login.value,
                 onValueChange = { login.value = it },
-                label = { Text("Имя пользователя") }
+                label = { Text("Имя пользователя") },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    textColor = colorResource(id = R.color.main_orange),
+                    cursorColor = colorResource(id = R.color.main_orange),
+                    leadingIconColor = colorResource(id = R.color.main_orange),
+                    focusedBorderColor = colorResource(id = R.color.light_gray),
+                    focusedLabelColor = colorResource(id = R.color.main_orange)
+                )
             )
             Spacer(modifier = Modifier.size(20.dp))
             OutlinedTextField(
@@ -125,7 +139,14 @@ fun AccountPage(currentUser: User){
                     .padding(horizontal = 16.dp),
                 value = email.value,
                 onValueChange = { email.value = it },
-                label = { Text("Электронная почта") }
+                label = { Text("Электронная почта") },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    textColor = colorResource(id = R.color.main_orange),
+                    cursorColor = colorResource(id = R.color.main_orange),
+                    leadingIconColor = colorResource(id = R.color.main_orange),
+                    focusedBorderColor = colorResource(id = R.color.light_gray),
+                    focusedLabelColor = colorResource(id = R.color.main_orange)
+                )
             )
 
         }

@@ -17,18 +17,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.testsapp.R
 import com.example.testsapp.models.NavigationDrawerItem
 import com.example.testsapp.ui.composables.functions.Header
 import kotlinx.coroutines.CoroutineScope
 
 @Composable
-fun SecurityPage(){
+fun SecurityPage(navController: NavHostController){
     val activity = (LocalContext.current as? Activity)
     Column() {
-        Header(activity = activity, title = "Безопасность")
+        Header(navController = navController, title = "Безопасность")
         val securityList = prepareSecurityList()
-        OptionsColumn(list = securityList)
+        OptionsColumn(navController, list = securityList)
     }
 
 }

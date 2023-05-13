@@ -10,20 +10,20 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.testsapp.ui.composables.main.MainPage
 
-@Composable
-fun MaisfdfnPage(){
-    val navController = rememberNavController()
-    Box(modifier = Modifier.padding(16.dp)){
-        NavHost(
-            navController = navController,
-            startDestination = "HomePage"
-        ){
-            composable("HomePage"){
-                MainPage()
-            }
-            composable("GroupsPage"){
-
-            }
-        }
-    }
-}
+//@Composable
+//fun MaisfdfnPage(){
+//    val navController = rememberNavController()
+//    Box(modifier = Modifier.padding(16.dp)){
+//        NavHost(
+//            navController = navController,
+//            startDestination = "HomePage"
+//        ){
+//            composable("HomePage"){
+//                MainPage()
+//            }
+//            composable("GroupsPage"){
+//
+//            }
+//        }
+//    }
+//}

@@ -22,6 +22,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -31,8 +33,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun SettingsPage(scope: CoroutineScope, drawerState: DrawerState) {
-    val navController = rememberNavController()
+fun SettingsPage(navController: NavHostController, scope: CoroutineScope, drawerState: DrawerState) {
     Box(modifier = Modifier.fillMaxSize()){
         Column(modifier = Modifier.align(Alignment.TopCenter)) {
             Box(
@@ -82,17 +83,18 @@ fun SettingsPage(scope: CoroutineScope, drawerState: DrawerState) {
                     style = MaterialTheme.typography.h1,
                     modifier = Modifier.padding(start = 16.dp, bottom = 10.dp)
                 )
-                OptionsColumn(list = accountList)
+                OptionsColumn(navController, list = accountList)
                 Text(
                     "Помощь",
                     fontSize = 20.sp,
                     style = MaterialTheme.typography.h1,
                     modifier = Modifier.padding(start = 16.dp, bottom = 10.dp)
                 )
-                OptionsColumn(list = helpList)
+                OptionsColumn(navController, list = helpList)
             }
 
         }
+
 
         Button(onClick = { /*TODO*/ },
             colors = ButtonDefaults.buttonColors(backgroundColor = Color.White, contentColor = colorResource(

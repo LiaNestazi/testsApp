@@ -14,17 +14,18 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.testsapp.models.Test
 import com.example.testsapp.R
 
 @Composable
-fun TestCards(item: Test) {
+fun TestCards(navController: NavHostController, item: Test) {
     Card(modifier = Modifier
         .fillMaxWidth()
         .padding(5.dp)
-        .clip(RoundedCornerShape(10.dp))
-        .clickable { /*TODO*/ },
-        elevation = 5.dp
+        .clickable { navController.navigate("TestInfoPage/"+item.id) },
+        elevation = 5.dp,
+        shape = RoundedCornerShape(15.dp)
     ){
         Column(
             modifier = Modifier.padding(10.dp),

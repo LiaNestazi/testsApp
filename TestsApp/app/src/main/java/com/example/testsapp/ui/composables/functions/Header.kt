@@ -11,11 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.testsapp.R
 import com.example.testsapp.ui.composables.FAB
 
 @Composable
-fun Header(activity: Activity?, title: String){
+fun Header(navController: NavHostController, title: String){
     Box(
         modifier = Modifier
             .fillMaxHeight(0.13f)
@@ -29,7 +30,13 @@ fun Header(activity: Activity?, title: String){
         ) {
             Box(contentAlignment = Alignment.CenterStart,
                 modifier = Modifier.fillMaxWidth(0.14f)){
-                FAB({activity?.finish()}, iconResourceId = R.drawable.arrow_left)
+                FAB({
+                    if (title == "Авторизация" || title == "Регистрация"){
+                        navController.navigate("HomePage")
+                    } else{
+                        navController.popBackStack()
+                    }
+                    }, iconResourceId = R.drawable.arrow_left)
             }
             Spacer(modifier = Modifier.size(4.dp))
             Box(contentAlignment = Alignment.Center,

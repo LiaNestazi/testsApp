@@ -23,13 +23,13 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.testsapp.*
 import com.example.testsapp.R
 import com.example.testsapp.models.NavigationDrawerItem
 
 @Composable
-fun OptionsColumn(list: List<NavigationDrawerItem>){
-    val context = LocalContext.current
+fun OptionsColumn(navController: NavHostController, list: List<NavigationDrawerItem>){
     LazyColumn(horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxWidth()
@@ -45,27 +45,22 @@ fun OptionsColumn(list: List<NavigationDrawerItem>){
                 .clickable {
                 when (item.label) {
                     "Аккаунт" -> {
-                        val accountIntent = Intent(context, AccountActivity::class.java)
-                        context.startActivity(accountIntent)
+                        navController.navigate("AccountPage", navOptions = null)
                     }
                     "Уведомления" -> {
-                        val notificationsIntent = Intent(context, NotificationsActivity::class.java)
-                        context.startActivity(notificationsIntent)
+                        navController.navigate("NotificationsPage", navOptions = null)
                     }
                     "Безопасность" -> {
-                        val safetyIntent = Intent(context, SecurityActivity::class.java)
-                        context.startActivity(safetyIntent)
+                        navController.navigate("SecurityPage", navOptions = null)
                     }
                     "Заявки" -> {
-                        val requestsIntent = Intent(context, RequestsActivity::class.java)
-                        context.startActivity(requestsIntent)
+                        navController.navigate("RequestsPage", navOptions = null)
                     }
                     "Чат с поддержкой" -> {
-                        val chatIntent = Intent(context, ChatActivity::class.java)
-                        context.startActivity(chatIntent)
+                        navController.navigate("ChatPage", navOptions = null)
                     }
                     "Сменить пароль" -> {
-                        // change password activity
+                        navController.navigate("ChangePasswordPage", navOptions = null)
                     }
                 }
             }
