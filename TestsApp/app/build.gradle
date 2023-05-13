@@ -1,15 +1,15 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
-
 android {
     namespace 'com.example.testsapp'
     compileSdk 33
 
     defaultConfig {
         applicationId "com.example.testsapp"
-        minSdk 24
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -56,6 +56,18 @@ dependencies {
     implementation 'androidx.compose.material:material:1.2.0'
     implementation'androidx.compose.material:material-icons-extended:1.4.0'
     implementation("androidx.navigation:navigation-compose:$nav_version")
+    // CORE material 3
+    implementation "com.maxkeppeler.sheets-compose-dialogs:core:1.1.1"
+    // CALENDAR material 3
+    implementation "com.maxkeppeler.sheets-compose-dialogs:calendar:1.1.1"
+
+    // CLOCK material 3
+    implementation "com.maxkeppeler.sheets-compose-dialogs:clock:1.1.1"
+
+    implementation "io.github.vanpra.compose-material-dialogs:datetime:0.8.1-rc"
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.4'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.6'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -63,5 +75,7 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+
+
 
 }
